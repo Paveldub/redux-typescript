@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       {isLoading && <p>...Loading</p>}
-      {error && <p>...Error</p>}
+      {error && <p>{error}</p>}
 
       <ul>
         {users.map((item) => (

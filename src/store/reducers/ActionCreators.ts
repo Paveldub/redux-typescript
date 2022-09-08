@@ -5,7 +5,11 @@ import { IUser } from "../../Interfaces/IUser";
 export const fetchUsers = createAsyncThunk(
     'users/fetchAll',
     async (_, thunkApi) => {
-        const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
-        return response.data
+        try {
+            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/use2rs')
+            return response.data
+        } catch (e) {
+            return thunkApi.rejectWithValue('Не удалось загрузить данные')
+        }
     }
 )
